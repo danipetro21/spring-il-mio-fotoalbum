@@ -135,3 +135,47 @@ background-color: transparent;
     border-color: #ffffff; /* Colore del bordino bianco */
 }
 
+/*detail page*/
+
+
+.detail-container {
+
+    height: 90vh;
+    background: no-repeat center center fixed;
+    background-size: cover;
+}
+
+.full-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    background-color: rgba(0, 0, 0, 0.5);
+    width:100%;
+    height:100%;
+}
+
+.title-detail{
+font-size:6rem;
+
+}
+
+.full-container p{
+font-size:1.3rem;
+
+}
+
+.full-container ul{
+list-style:none;
+display:flex;
+gap:10px;
+}
+
+.full-container li{
+
+border: 1px solid white;
+padding: 10px;
+
+}
+
+

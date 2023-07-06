@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{/fragments/resources :: head(pageTitle=${foto.title})}"></head>
+<body>
+<nav th:replace="/fragments/navbar :: navbar"></nav>
+
+
+<div class="detail-container my-3" th:style="'background-image: url(' + ${foto.url} + ');'">
+
+    <div class="full-container">
+
+        <h1 class="title-detail" th:text="${foto.title}"></h1>
+
+        <p th:text="${foto.descr}"></p>
+
+
+        <ul th:if="${foto.categoriaList.size() > 0}">
+            <li th:each="cat : ${foto.categoriaList}" th:text="*{cat.name}"></li>
+        </ul>
+
+    </div>
+
+
+
+</div>
+
+</body>
+</html>
