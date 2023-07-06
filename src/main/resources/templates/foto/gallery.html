@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{/fragments/resources :: head(pageTitle='Galleria')}"></head>
+<body>
+<nav th:replace="/fragments/navbar :: navbar"></nav>
+
+<div class="jumbotron jumbotron-fluid bg-white text-dark my-5" style="height: 200px;">
+    <div class="container">
+        <h1 class="display-4">Esplora la Nostra Galleria Fotografica e Immortala Momenti Indimenticabili</h1>
+        <p class="lead">Un'Esposizione di Immagini che Catturano l'Essenza e la Bellezza del Mondo</p>
+    </div>
+</div>
+
+
+<div class="container">
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
+        <div class="col" th:each="foto : ${listaFoto}">
+            <div class="card">
+                <a>
+                    <img class="card-img-top" alt="Card image cap" th:src="${foto.url}">
+                </a>
+                <!--<div class="card-footer d-flex align-items-center">
+                    <a class="btn btn-primary me-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <form>
+                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </form>
+                </div>-->
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

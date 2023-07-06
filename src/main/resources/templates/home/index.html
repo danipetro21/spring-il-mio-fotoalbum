@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{/fragments/resources :: head(pageTitle='Fotoalbum')}"></head>
+<body>
+<nav th:replace="/fragments/navbar :: navbar"></nav>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="https://i.postimg.cc/bNQp0RDW/1.jpg" alt="jumbotron">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Frame by Frame</h5>
+                <p>Un'Esplorazione Visiva del Mondo Attraverso l'Obiettivo</p>
+
+                <a class="my-3 btn btn-outline-light btn-transparent">Esplora la Galleria</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
