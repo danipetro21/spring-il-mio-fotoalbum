@@ -13,6 +13,14 @@
 
 
 <div class="container">
+
+
+    <form class="search-bar" th:action="@{/foto/lista}" method="GET">
+        <input class="input-search" type="search" name="keyword" required th:value="${searchInput}">
+        <button class="btn" type="submit"><i class="fa fa-search icon"></i></button>
+    </form>
+
+
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
         <div class="col" th:each="foto : ${listaFoto}">
             <div class="card">

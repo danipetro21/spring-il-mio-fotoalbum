@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.swing.text.html.Option;
@@ -28,10 +29,17 @@ public class FotoController {
     private CategoriaRepository categoriaRepository;
 
     @GetMapping("/lista")
-    public String listFoto(Model model){
+    public String listFoto(@RequestParam(name = "keyword", required = false) String searchString, Model model){
         List<Foto> listaFoto;
-        listaFoto = fotoRepository.findAll();
+
+        if (searchString == null || searchString.isBlank()) {
+            listaFoto = fotoRepository.findAll();
+        } else {
+            listaFoto = fotoRepository.findByTitleContainingIgnoreCase(searchString);
+        }
+
         model.addAttribute("listaFoto" , listaFoto);
+        model.addAttribute("searchInput", searchString == null ? "" : searchString);
         return "/foto/gallery";
     }
 
