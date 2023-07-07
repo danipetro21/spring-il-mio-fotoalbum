@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head th:insert="~{/fragments/resources :: head(pageTitle='Galleria')}"></head>
 <body>
 <nav th:replace="/fragments/navbar :: navbar"></nav>
@@ -20,7 +20,7 @@
             <button class="btn" type="submit"><i class="fa fa-search icon"></i></button>
         </form>
 
-        <a type="button" class="btn plus-ico" th:href="@{/foto/create}"><i
+        <a sec:authorize="hasAuthority('ADMIN')" type="button" class="btn plus-ico" th:href="@{/foto/create}"><i
                 class="fa-solid fa-plus"></i></a>
 
 
@@ -39,7 +39,7 @@
                             <a th:href="@{|/foto/detail/${foto.id}|}">
                                 <h3 th:text="${foto.title}"></h3>
                             </a>
-                            <div class="d-flex align-items-center">
+                            <div sec:authorize="hasAuthority('ADMIN')" class="d-flex align-items-center">
                                 <a class="btn btn-primary me-1" th:href="@{|/foto/edit/${foto.id}|}"><i class="fa-solid fa-pen-to-square"></i></a>
                                 <form method="post" th:action="@{|/foto/delete/${foto.id}|}">
                                     <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{/fragments/resources :: head(pageTitle='Categorie')}"></head>
+<body>
+<nav th:replace="/fragments/navbar :: navbar"></nav>
+
+
+<div class="login-box">
+    <h2>Login</h2>
+    <form th:action="@{/process-login}" method="post">
+        <div class="user-box">
+            <input type="text" id="username" name="username" required>
+            <label>Username</label>
+        </div>
+        <div class="user-box">
+            <input type="password" id="password" name="password" required>
+            <label>Password</label>
+        </div>
+        <a >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <button class="btn btn-pers" type="submit">Submit</button>
+        </a>
+    </form>
+</div>
+
+
+</body>
+</html>
