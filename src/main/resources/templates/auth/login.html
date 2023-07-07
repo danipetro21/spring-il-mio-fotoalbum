@@ -4,9 +4,14 @@
 <body>
 <nav th:replace="/fragments/navbar :: navbar"></nav>
 
-
 <div class="login-box">
     <h2>Login</h2>
+
+    <div th:if="${param.error}" class="alert alert-danger">Username or password is invalid</div>
+
+
+
+
     <form th:action="@{/process-login}" method="post">
         <div class="user-box">
             <input type="text" id="username" name="username" required>
@@ -16,7 +21,7 @@
             <input type="password" id="password" name="password" required>
             <label>Password</label>
         </div>
-        <a >
+        <a>
             <span></span>
             <span></span>
             <span></span>
@@ -25,7 +30,6 @@
         </a>
     </form>
 </div>
-
 
 </body>
 </html>

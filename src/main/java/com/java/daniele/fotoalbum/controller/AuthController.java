@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AuthController {
@@ -18,6 +20,17 @@ public class AuthController {
 
         return "/auth/login";
     }
+
+    @PostMapping("/process-login")
+    public String processLogin(@RequestParam(value = "error", required = false) String error) {
+        if (error != null) {
+            return "redirect:/login";
+        }
+        return "redirect:/";
+    }
+
+
+
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
