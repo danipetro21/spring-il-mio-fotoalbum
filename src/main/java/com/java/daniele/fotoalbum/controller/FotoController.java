@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.swing.text.html.Option;
@@ -56,6 +53,27 @@ public class FotoController {
 
     }
 
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id){
+
+        Foto fotoToDelete = getFotoById(id);
+        fotoRepository.delete(fotoToDelete);
+        return "redirect:/foto/lista";
+    }
+
+
+
+
+
+    /*UTILITY*/
+
+    public Foto getFotoById(Integer id){
+        Optional<Foto> result = fotoRepository.findById(id);
+        if (result.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "foto with id " + id + " not found");
+        }
+        return result.get();
+    }
 
 
 }
