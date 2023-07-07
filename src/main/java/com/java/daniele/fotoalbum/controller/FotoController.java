@@ -83,6 +83,29 @@ public class FotoController {
         return "redirect:/foto/lista";
     }
 
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable Integer id, Model model) {
+        Foto fotoToEdit = getFotoById(id);
+        model.addAttribute("foto", fotoToEdit);
+        model.addAttribute("categorie", categoriaRepository.findAll());
+        return "/foto/form";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String update(@PathVariable Integer id, @Valid @ModelAttribute("pizza") Foto fotoForm, BindingResult bindingResult) {
+        Foto fotoToEdit = getFotoById(id);
+        fotoForm.setId(fotoToEdit.getId());
+
+        if (bindingResult.hasErrors()) {
+            return "/foto/form";
+        }
+
+        fotoRepository.save(fotoForm);
+        return "redirect:/foto/lista";
+    }
+
+
     /*UTILITY*/
 
     public Foto getFotoById(Integer id) {
