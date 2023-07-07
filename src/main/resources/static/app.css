@@ -267,4 +267,346 @@ padding: 10px;
  background-color: transparent;
 }
 
+/*plus btn*/
+
+.plus-ico{
+    background: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display:flex;
+        justify-content: center;
+        align-items:center;
+}
+
+
+/*LOGIN BOX*/
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box a:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+
+/*modal */
+
+.modal-open .modal {
+            overflow-x: hidden;
+            overflow-y: auto;
+
+            background-size: cover;
+
+        }
+
+        .modal-content {
+            background-color: #151414;
+            color: white;
+            padding: 13px;
+        }
+
+        .container-chk {
+            display: block;
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            height: 52px;
+        }
+
+        .set {
+            width: 100%;
+            height: 67px;
+            border-radius: 4px;
+            background: #252222;
+            padding-top: 16px;
+            padding-left: 16px;
+            margin-bottom: 10px;
+
+        }
+
+        /* Hide the browser's default checkbox */
+        .container-chk input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 17px;
+            width: 17px;
+            border-radius: 3px;
+            background-color: #212121;
+            border: 1px solid;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .container-chk:hover input~.checkmark {
+            background-color: white;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .container-chk input:checked~.checkmark {
+            background-color: white;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .container-chk input:checked~.checkmark:after {
+            display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .container-chk .checkmark:after {
+            left: 5px;
+            top: -1px;
+            width: 5px;
+            height: 13px;
+            border: solid #212121;
+            border-width: 0 1px 1px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .small,
+        small {
+            font-size: 80%;
+            font-weight: 400;
+            position: relative;
+            bottom: 8px;
+        }
+
+        .txt {
+            position: relative;
+            bottom: 4px;
+            left: 2px;
+        }
+
+        .cancel {
+            border: 1px solid #252222;
+            background: #151414;
+            color: white;
+            width: 40%;
+        }
+
+        .btn.focus,
+        .btn:focus {
+            outline: 0;
+            box-shadow: none !important;
+        }
+        .close.focus,
+        .close:focus {
+            outline: 0;
+            box-shadow: none !important;
+        }
+
+        .create {
+            border: 0.5px solid #ccc;
+            background: #151414;
+            color: white;
+            width: 40%;
+        }
+
+        .close {
+            color: white;
+            font-weight: 100;
+        }
+
+        .modal-footer {
+            justify-content: space-between;
+
+        }
+
+
+/*check box*/
+
+.check-in{
+
+border: 1px solid white;
+padding: 10px;
+
+}
+
+
+
+
+
+
+
 
