@@ -11,7 +11,7 @@
     <form th:with="formAction=${isEdit ? '/foto/edit/'+ foto.id : '/foto/create'}" th:action="@{${formAction}}" method="post">
         <div class="mb-3">
             <input type="text" name="title" class="border-0 mb-3" placeholder="Titolo" th:field="${foto.title}"
-                   style="width:100%;height:40px;background-color:#252222;border-radius: 4px;padding-left: 16px;"
+                   style="width:100%;height:40px;background-color:#252222;color: white;border-radius: 4px;padding-left: 16px;"
                    autofocus/>
         </div>
 
@@ -23,7 +23,7 @@
 
         <div class="mb-3">
             <input type="text" name="url" class="border-0 mb-3" placeholder="URL" th:field="${foto.url}"
-                   style="width:100%;height:40px;background-color:#252222;border-radius: 4px;padding-left: 16px;"
+                   style="width:100%;height:40px;background-color:#252222;color: white;border-radius: 4px;padding-left: 16px;"
                    autofocus/>
         </div>
 
