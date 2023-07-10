@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head th:insert="~{/fragments/resources :: head(pageTitle='Messaggi')}"></head>
+<body>
+<nav th:replace="/fragments/navbar :: navbar"></nav>
+
+
+<div class="container">
+
+    <h1 class="my-5">Lista messaggi</h1>
+
+    <table class="table white-table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Email</th>
+            <th scope="col">Message</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="mes : ${listMessaggi}">
+            <th scope="row" th:text="${mes.id}"></th>
+            <td th:text="${mes.email}"></td>
+            <td th:text="${mes.message}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

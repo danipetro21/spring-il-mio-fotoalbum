@@ -63,3 +63,6 @@ INSERT INTO users (id, email, first_name, last_name, password) VALUES(1, 'john@e
 INSERT INTO users (id, email, first_name, last_name, password) VALUES(2, 'jane@email.com', 'Jane', 'Doe', '{noop}jane');
 INSERT INTO users_roles (roles_id, user_id) VALUES(1, 1);
 INSERT INTO users_roles (roles_id, user_id) VALUES(2, 2);
+
+INSERT INTO messaggi (email, message) VALUES ("pincopallo@email.it", "prova messaggio blalblalfawdaowdajwndawdnawdnajdnawjndjawndjawndjandjandwjawndjawndjawnd");
+INSERT INTO messaggi (email, message) VALUES ("kalaklakal@email.it", "dbawbdawildjawnhdbawdiawldbnaiuwdbn");

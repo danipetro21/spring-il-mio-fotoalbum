@@ -21,7 +21,7 @@
                     <a class="nav-link" th:href="@{/categoria}" sec:authorize="hasAuthority('ADMIN')">Categorie</a>
                 </li>
                 <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
-                    <a class="nav-link" href="#">Messaggi</a>
+                    <a class="nav-link" th:href="@{/messaggi/lista}">Messaggi</a>
                 </li>
                 <li class="nav-item" sec:authorize="hasAuthority('USER')">
                     <a class="nav-link" href="#">Contatti</a>
