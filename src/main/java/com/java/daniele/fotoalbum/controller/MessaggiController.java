@@ -16,7 +16,7 @@ import java.util.List;
 public class MessaggiController {
 
     @Autowired
-    MessaggiRepository messaggiRepository;
+    private MessaggiRepository messaggiRepository;
 
     @GetMapping("/lista")
     public String getAllMessage(Model model){
