@@ -45,20 +45,10 @@
             <div class="set">
                 <label class="container-chk">
                     <div class="txt">
-                        Private
-                        <div><small>Solo tu puoi vedere questa foto</small></div>
-                    </div>
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <div class="set">
-                <label class="container-chk">
-                    <div class="txt">
                         Public
                         <div><small>Tutti posso vedere questa foto</small></div>
                     </div>
-                    <input type="checkbox">
+                    <input type="checkbox" th:checked="${foto.visible}" th:field="${foto.visible}">
                     <span class="checkmark"></span>
                 </label>
             </div>

@@ -28,7 +28,7 @@
 
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
-        <div class="col" th:each="foto : ${listaFoto}">
+        <div class="col" th:each="foto : ${listaFoto}" th:if="${foto.visible} or ${isAdmin}">
             <div class="card">
                 <a>
                     <div class="image-container">

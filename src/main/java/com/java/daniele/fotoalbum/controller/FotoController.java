@@ -7,13 +7,15 @@ import com.java.daniele.fotoalbum.repository.FotoRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.swing.text.html.Option;
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,8 +30,9 @@ public class FotoController {
     private CategoriaRepository categoriaRepository;
 
     @GetMapping("/lista")
-    public String listFoto(@RequestParam(name = "keyword", required = false) String searchString, Model model) {
+    public String listFoto(@RequestParam(name = "keyword", required = false) String searchString, Model model, Principal principal) {
         List<Foto> listaFoto;
+        boolean isAdmin = false;
 
         if (searchString == null || searchString.isBlank()) {
             listaFoto = fotoRepository.findAll();
@@ -37,6 +40,14 @@ public class FotoController {
             listaFoto = fotoRepository.findByTitleContainingIgnoreCase(searchString);
         }
 
+
+        if (principal != null) {
+            Authentication authentication = (Authentication) principal;
+            isAdmin = authentication.getAuthorities().stream()
+                    .anyMatch(role -> role.getAuthority().equals("ADMIN"));
+        }
+
+        model.addAttribute("isAdmin", isAdmin);
         model.addAttribute("listaFoto", listaFoto);
         model.addAttribute("searchInput", searchString == null ? "" : searchString);
         return "/foto/gallery";
